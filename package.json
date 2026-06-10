@@ -20,7 +20,8 @@
 		"build": "tsc && gulp build:icons",
 		"watch": "tsc --watch",
 		"lint": "eslint nodes credentials --ext .ts",
-		"lintfix": "eslint nodes credentials --ext .ts --fix"
+		"lintfix": "eslint nodes credentials --ext .ts --fix",
+		"test": "npx @n8n/scan-community-package n8n-nodes-klaaro"
 	},
 	"files": [
 		"dist"
