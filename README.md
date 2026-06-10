@@ -1,4 +1,4 @@
-# n8n-nodes-klaaro-ai
+# n8n-nodes-klaaro
 
 Community n8n node for the [Klaaro](https://klaaro.ai) document extraction API.
 
@@ -6,13 +6,13 @@ Community n8n node for the [Klaaro](https://klaaro.ai) document extraction API.
 
 ### Community nodes (recommended)
 
-In n8n, go to **Settings → Community nodes**, install `n8n-nodes-klaaro-ai`.
+In n8n, go to **Settings → Community nodes**, install `n8n-nodes-klaaro`.
 
 ### Manual install
 
 ```bash
 cd ~/.n8n/custom
-npm install n8n-nodes-klaaro-ai
+npm install n8n-nodes-klaaro
 ```
 
 Restart n8n after installing.
@@ -98,7 +98,7 @@ n8n loads community nodes from `~/.n8n/custom/`. Create that directory if it doe
 mkdir -p ~/.n8n/custom
 cd ~/.n8n/custom
 npm init -y   # only needed on first setup
-npm link n8n-nodes-klaaro-ai
+npm link n8n-nodes-klaaro
 ```
 
 If your n8n install uses a custom extensions path, link the package there instead (set via `N8N_CUSTOM_EXTENSIONS`).
@@ -139,7 +139,7 @@ Restart n8n (or set `N8N_DEV_RELOAD=true` when running n8n from source) to pick 
 
 ### Troubleshooting
 
-- **Node not visible** — confirm `npm link n8n-nodes-klaaro-ai` ran inside `~/.n8n/custom`, then restart n8n.
+- **Node not visible** — confirm `npm link n8n-nodes-klaaro` ran inside `~/.n8n/custom`, then restart n8n.
 - **Stale build** — run `npm run build` in `klaaro-n8n` before restarting n8n.
 - **Credential test fails** — verify the API key has `read` scope and targets `https://klaaro.ai/api/v1`.
 

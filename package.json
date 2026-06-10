@@ -1,5 +1,5 @@
 {
-	"name": "n8n-nodes-klaaro-ai",
+	"name": "n8n-nodes-klaaro",
 	"version": "0.1.0",
 	"description": "n8n community node for the Klaaro document extraction API.",
 	"keywords": [
