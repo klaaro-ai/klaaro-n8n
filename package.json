@@ -1,0 +1,52 @@
+{
+	"name": "n8n-nodes-klaaro-ai",
+	"version": "0.1.0",
+	"description": "n8n community node for the Klaaro document extraction API.",
+	"keywords": [
+		"n8n-community-node-package"
+	],
+	"license": "MIT",
+	"homepage": "https://klaaro.ai",
+	"author": {
+		"name": "Klaaro",
+		"email": "hello@klaaro.ai"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/klaaro-ai/klaaro-n8n.git"
+	},
+	"main": "index.js",
+	"scripts": {
+		"build": "tsc && gulp build:icons",
+		"watch": "tsc --watch",
+		"lint": "eslint nodes credentials --ext .ts",
+		"lintfix": "eslint nodes credentials --ext .ts --fix"
+	},
+	"files": [
+		"dist"
+	],
+	"n8n": {
+		"n8nNodesApiVersion": 1,
+		"nodes": [
+			"dist/nodes/Klaaro/Klaaro.node.js",
+			"dist/nodes/KlaaroTrigger/KlaaroTrigger.node.js"
+		],
+		"credentials": [
+			"dist/credentials/KlaaroApi.credentials.js"
+		]
+	},
+	"devDependencies": {
+		"@types/node": "^25.9.2",
+		"@typescript-eslint/eslint-plugin": "^7.18.0",
+		"@typescript-eslint/parser": "^7.18.0",
+		"eslint": "^8.57.0",
+		"eslint-plugin-n8n-nodes-base": "^1.16.3",
+		"gulp": "^4.0.2",
+		"n8n-workflow": "*",
+		"prettier": "^3.4.2",
+		"typescript": "^5.7.2"
+	},
+	"peerDependencies": {
+		"n8n-workflow": "*"
+	}
+}
