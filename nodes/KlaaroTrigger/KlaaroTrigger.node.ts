@@ -202,14 +202,30 @@ export class KlaaroTrigger implements INodeType {
 	async webhook(this: IWebhookFunctions): Promise<IWebhookResponseData> {
 		const webhookData = this.getWorkflowStaticData('node') as KlaaroWebhookStaticData;
 		const signingSecret = webhookData.signingSecret as string | undefined;
-		const signatureHeader = this.getHeaderData()['x-docs2db-signature'] as string | undefined;
+		const signatureHeader = this.getHeaderData()['klaaro-signature'] as string | undefined;
 
 		if (signingSecret && signatureHeader) {
 			const rawBody = getRawBody(this.getRequestObject() as RequestWithRawBody);
-			const expected = `sha256=${createHmac('sha256', signingSecret).update(rawBody).digest('hex')}`;
+			const parts = Object.fromEntries(
+				signatureHeader.split(',').map((part) => part.split('=') as [string, string]),
+			);
+			const timestamp = parts['t'];
+			const signature = parts['v1'];
+
+			if (!timestamp || !signature) {
+				throw new NodeOperationError(this.getNode(), 'Invalid Klaaro webhook signature');
+			}
+
+			if (Math.abs(Date.now() / 1000 - Number(timestamp)) > 300) {
+				throw new NodeOperationError(this.getNode(), 'Klaaro webhook signature expired');
+			}
+
+			const expected = createHmac('sha256', signingSecret)
+				.update(`${timestamp}.${rawBody}`)
+				.digest('hex');
 
 			const expectedBuffer = Buffer.from(expected);
-			const receivedBuffer = Buffer.from(signatureHeader);
+			const receivedBuffer = Buffer.from(signature);
 
 			if (
 				expectedBuffer.length !== receivedBuffer.length ||

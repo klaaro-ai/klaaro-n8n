@@ -57,7 +57,7 @@ Supported events:
 - `document.failed`
 - `record.updated`
 
-When Klaaro returns a `signingSecret` at webhook creation, incoming deliveries are verified with `X-Docs2DB-Signature`.
+When Klaaro returns a `signingSecret` at webhook creation, incoming deliveries are verified with `Klaaro-Signature` (`t=<unix>,v1=<hmac_sha256>`).
 
 **Test mode:** click **Listen for test event** on the trigger node before triggering events in Klaaro. The listener stays open for about 2 minutes.
 
