@@ -4,7 +4,7 @@
 # 1. Log in to npmjs.com → n8n-nodes-klaaro → Package settings
 # 2. Publish access → Trusted Publishers → Add publisher → GitHub Actions
 # 3. Repository owner: klaaro-ai
-# 4. Repository name: klaaro-n8n
+# 4. Repository name: n8n-nodes-klaaro
 # 5. Workflow filename: publish.yml
 #
 # Fallback: set NPM_TOKEN (granular publish token) in repo Actions secrets.

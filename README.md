@@ -72,15 +72,15 @@ When Klaaro returns a `signingSecret` at webhook creation, incoming deliveries a
 ### 1. Clone and build
 
 ```bash
-git clone <repo-url> klaaro-n8n
-cd klaaro-n8n
+git clone https://github.com/klaaro-ai/n8n-nodes-klaaro.git
+cd n8n-nodes-klaaro
 npm install
 npm run build
 ```
 
 ### 2. Publish the package locally
 
-From the `klaaro-n8n` directory:
+From the `n8n-nodes-klaaro` directory:
 
 ```bash
 npm link
@@ -112,7 +112,7 @@ Open n8n in the browser and search for **Klaaro** in the node panel.
 In one terminal, watch TypeScript:
 
 ```bash
-cd klaaro-n8n
+cd n8n-nodes-klaaro
 npm run watch
 ```
 
@@ -136,7 +136,7 @@ Restart n8n (or set `N8N_DEV_RELOAD=true` when running n8n from source) to pick 
 ### Troubleshooting
 
 - **Node not visible** — confirm `npm link n8n-nodes-klaaro` ran inside `~/.n8n/custom`, then restart n8n.
-- **Stale build** — run `npm run build` in `klaaro-n8n` before restarting n8n.
+- **Stale build** — run `npm run build` in `n8n-nodes-klaaro` before restarting n8n.
 - **Credential test fails** — verify the API key has `read` scope and targets `https://klaaro.ai/api/v1`.
 
 ## License
