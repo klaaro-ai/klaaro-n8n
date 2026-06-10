@@ -9,8 +9,7 @@ import type {
 } from 'n8n-workflow';
 import { NodeApiError } from 'n8n-workflow';
 
-/** Override with KLAARO_API_BASE env var for local dev (e.g. http://localhost:3000/api/v1). */
-export const KLAARO_API_BASE = (process.env.KLAARO_API_BASE ?? 'https://klaaro.ai/api/v1').replace(/\/$/, '');
+export const KLAARO_API_BASE = 'https://klaaro.ai/api/v1';
 export const KLAARO_CREDENTIAL_TYPE = 'klaaroApi';
 
 export type KlaaroRequestContext =

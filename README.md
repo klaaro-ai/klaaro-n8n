@@ -143,16 +143,6 @@ Restart n8n (or set `N8N_DEV_RELOAD=true` when running n8n from source) to pick 
 - **Stale build** — run `npm run build` in `klaaro-n8n` before restarting n8n.
 - **Credential test fails** — verify the API key has `read` scope and targets `https://klaaro.ai/api/v1`.
 
-## API base URL
-
-Production default: `https://klaaro.ai/api/v1`.
-
-For local dev, set before starting n8n:
-
-```bash
-export KLAARO_API_BASE=http://localhost:3000/api/v1
-```
-
 ## License
 
 MIT
