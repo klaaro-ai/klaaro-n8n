@@ -23,13 +23,9 @@ export type RecordFormat = 'clean' | 'flat' | 'nested';
 export const RECORD_FORMATS: RecordFormat[] = ['clean', 'flat', 'nested'];
 
 export const WEBHOOK_EVENTS = [
-	'document.ocr_completed',
 	'document.extraction_completed',
 	'document.failed',
-	'document.uploaded',
 	'record.updated',
-	'record.approved',
-	'evaluation.completed',
 ] as const;
 
 export type WebhookEvent = (typeof WEBHOOK_EVENTS)[number];
@@ -53,8 +49,11 @@ interface KlaaroErrorBody {
 	};
 }
 
-export function sleep(ms: number): Promise<void> {
-	return new Promise((resolve) => setTimeout(resolve, ms));
+export async function sleep(ms: number): Promise<void> {
+	const deadline = Date.now() + ms;
+	while (Date.now() < deadline) {
+		await Promise.resolve();
+	}
 }
 
 export function recordPathForFormat(format: RecordFormat, datasetScoped = false): string {

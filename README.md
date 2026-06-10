@@ -53,13 +53,9 @@ Starts a workflow when Klaaro sends webhook events. On activation, the node regi
 
 Supported events:
 
-- `document.ocr_completed`
 - `document.extraction_completed`
 - `document.failed`
-- `document.uploaded`
 - `record.updated`
-- `record.approved`
-- `evaluation.completed`
 
 When Klaaro returns a `signingSecret` at webhook creation, incoming deliveries are verified with `X-Docs2DB-Signature`.
 
